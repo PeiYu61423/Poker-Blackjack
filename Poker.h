@@ -12,16 +12,17 @@ private:
 	int pokerB[5]; //banker value
 	int pokerPNum; //player card number
 	int pokerBNum; //banker card number
-	static const string pokerNumber[13];
+
 public:
 	Poker();
-	int getSumP();
-	int getSumB();
-	string getPokerP();
-	string getPokerB();
-	void outs();
-	void Bouts();
+	int getSumP(); //add player points
+	int getSumB(); //add banker point
+	string getPokerP(); //return player points
+	string getPokerB(); //return banker points
+	void outs(); //player asks for
+	void Bouts(); //banker asks for
 	void shuffle();
 	void BBouts();
 };
 #endif
+
