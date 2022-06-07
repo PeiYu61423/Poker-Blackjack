@@ -5,9 +5,9 @@ using namespace std;
 class Poker
 {
 private:
-	int poker[53];
-	int pValue[53];
-	string pName[53];
+	int poker[52];
+	int pValue[52];
+	string pName[52];
 	int pokerP[5]; //player value
 	int pokerB[5]; //banker value
 	int pokerPNum; //player card number
@@ -15,15 +15,13 @@ private:
 	static const string pokerNumber[13];
 public:
 	Poker();
-	int getSumP();   //產翴计羆    
-	int getSumB();   //缠產翴计羆 
-	string getPokerP();  //產翴计
-	string getPokerB();  //缠產翴计
-	void outs();//產璶礟  
-	void Bouts();//缠產璶礟
-	void shuffle();//瑍礟
+	int getSumP();
+	int getSumB();
+	string getPokerP();
+	string getPokerB();
+	void outs();
+	void Bouts();
+	void shuffle();
 	void BBouts();
 };
 #endif
-
-
