@@ -15,14 +15,15 @@ private:
 	static const string pokerNumber[13];
 public:
 	Poker();
-	int getSumP();       
-	int getSumB();       
-	string getPokerP();  
-	string getPokerB();  
-	void outs();
-	void Bouts();
-	void shuffle();
+	int getSumP();   //產翴计羆    
+	int getSumB();   //缠產翴计羆 
+	string getPokerP();  //產翴计
+	string getPokerB();  //缠產翴计
+	void outs();//產璶礟  
+	void Bouts();//缠產璶礟
+	void shuffle();//瑍礟
 	void BBouts();
 };
 #endif
+
 

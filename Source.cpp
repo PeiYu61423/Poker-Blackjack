@@ -67,73 +67,72 @@ void Poker::shuffle()
 }
 
 
-int Poker::getSumP(){
-	int result = 0;
+int Poker::getSumP() {
+	int sum = 0;
 
 	for (int i = 0; i < pokerPNum; i++)
-		result = result + pValue[pokerP[i]];
+		sum = sum + pValue[pokerP[i]];
 
-	return result;
+	return sum;
 };
-int Poker::getSumB(){
-	int result = 0;
+int Poker::getSumB() {
+	int sum = 0;
 
 	for (int i = 0; i < pokerBNum; i++)
-		result = result + pValue[pokerB[i]];
+		sum = sum + pValue[pokerB[i]];
 
-	return result;
-};         
+	return sum;
+};
 string Poker::getPokerP() {
-	int i;
 	string result = "";
 
-	for (i = 0; i < pokerPNum; i++)
+	for (int i = 0; i < pokerPNum; i++)
 		result = result + pName[pokerP[i]] + " ";
 
 	return result;
-};  
+};
 string Poker::getPokerB() {
-	int i;
 	string result = "";
 
-	for (i = 0; i < pokerBNum; i++)
+	for (int i = 0; i < pokerBNum; i++)
 		result = result + pName[pokerB[i]] + " ";
 
 	return result;
-}; 
+};
 
-void Poker::outs(){
+void Poker::outs() {
 	if (pokerPNum >= 5)
 	{
-		cout << "你的牌數已夠5張，不能再要牌了" << endl;
-		
+		cout << "你的牌數已達上限" << endl;
+
 	}
 	else
 	{
-		pokerP[pokerPNum++] = rand()%52;  
+		pokerP[pokerPNum++] = rand() % 52;
 		cout << "你的牌為:" << getPokerP() << endl;
+		cout << getSumP() << "點" << endl;
 		if (getSumP() > 21)
 		{
-			
-				cout << "你已經輸了" << endl;
-				cout << "遊戲結束" << endl;
-				exit(0);
+
+			cout << "你已經輸了" << endl;
+			cout << "遊戲結束" << endl;
+			exit(0);
 		}
 		else if (getSumP() == 21)
 		{
 			cout << "玩家的牌為" << getPokerP() << endl;
-			cout<<"你贏了 " << endl;
+			cout << "你贏了 " << endl;
 			exit(0);
 		}
 	}
-}; 
-void Poker::Bouts(){
+};
+void Poker::Bouts() {
 	if (pokerBNum >= 5)
 	{
 		if (getSumP() > getSumB())
 		{
 			cout << "莊家的牌為" << getPokerB() << endl;
-			cout << "你贏了"  << endl;
+			cout << "你贏了" << endl;
 			exit(0);
 
 		}
@@ -146,41 +145,46 @@ void Poker::Bouts(){
 		else if (getSumP() < getSumB())
 		{
 			cout << "莊家的牌為" << getPokerB() << endl;
-			cout << "你輸了" <<  endl;
-				exit(0);
-			
+			cout << "你輸了" << endl;
+			exit(0);
+
 		}
 	}
 	else
 	{
-		pokerB[pokerBNum++] = rand() % 52; 
+		pokerB[pokerBNum++] = rand() % 52;
 		if (getSumB() > 21)
 		{
 			cout << "莊家的牌為" << getPokerB() << endl;
-			cout << "莊家死了,你贏了"  << endl;
+			cout << "莊家死了,你贏了" << endl;
+			exit(0);
 		}
 		else    BBouts();
 	}
-};         
+};
 void Poker::BBouts() {
 	if (getSumB() >= 17)
 	{
 		if (getSumB() > getSumP())
 		{
 			cout << "莊家的牌為" << getPokerB() << endl;
+			cout << getSumB() << "點" << endl;
 			cout << "你輸了" << endl;
-				exit(0);
+
+			exit(0);
 		}
 		else if (getSumP() == getSumB())
 		{
 			cout << "莊家的牌為" << getPokerB() << endl;
+			cout << getSumB() << "點" << endl;
 			cout << "你輸了" << endl;
 			exit(0);
 		}
-		else 
+		else
 		{
 			cout << "莊家的牌為" << getPokerB() << endl;
-			cout << "你贏了"  << endl;
+			cout << getSumB() << "點" << endl;
+			cout << "你贏了" << endl;
 			exit(0);
 		}
 	}
